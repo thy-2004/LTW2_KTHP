@@ -21,9 +21,7 @@ services:
       - app-network
 
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: thyhoang/coffee-backend:latest
     container_name: coffee-backend
     restart: always
     ports:
@@ -35,14 +33,11 @@ services:
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/coffeeshop_db
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=Thy@2304
-
     networks:
       - app-network
 
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    image: thyhoang/coffee-frontend:latest
     container_name: coffee-frontend
     ports:
       - "3000:80"
